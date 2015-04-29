@@ -29,7 +29,7 @@ CFLAGS 	= 	-g -c -Wall -Os -mmcu=$(CPU) $(INC)
 LFLAGS 	=	-g -Wall -Os -mmcu=$(CPU)
 # Object Files
 OBJS	= 	os_assert.o os_cbk.o os_event.o os_kernel.o os_msgqueue.o os_sem.o os_task.o \
-			main.o uart.o
+			main.o uart.o lcd.o
 
 # target all
 all: $(OBJS)
@@ -73,5 +73,8 @@ main.o: main.c
 	$(CC)gcc $(CFLAGS) $^ -o $@
 
 uart.o: uart.c
+	$(CC)gcc $(CFLAGS) $^ -o $@
+
+lcd.o: lcd.c
 	$(CC)gcc $(CFLAGS) $^ -o $@
 
